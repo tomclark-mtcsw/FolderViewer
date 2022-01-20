@@ -16,7 +16,7 @@
          *
          * The file structure is only filled as the user requests it.  So if
          * a given directory has dozens of nested directories, they are only
-         * exposed and retrieved as the user requrest.  This keeps the performance
+         * exposed and retrieved as the user requests.  This keeps the performance
          * reasonable.  The structure is stored in a recursive class.
          */
         private string RootPath;
