@@ -1,0 +1,57 @@
+﻿@model ViewFolders.Models.FolderViewer
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">FolderViewer Test</h1>
+</div>
+
+<div id="FolderDiv">
+    @if (Model != null)
+    {
+    @Html.Raw(Model.Display())
+    }
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        var expandedDirectories = new Array();
+        
+        function ExpandFolder(parm) {
+            var expandedDirectories = $("#ExpandedDirectories").val();
+            var rootPath = $("#RootPath").val();
+            if (expandedDirectories.length > 0) {
+                expandedDirectories += "|" + parm;
+            } else {
+                expandedDirectories = parm;
+            }
+            $.ajax({
+                type: "POST",
+                async: false,
+                data: { rootPath: rootPath, expandedDirectories: expandedDirectories },
+                url: '@Url.Action("UpdateFolderDisplay")',
+                success: function (result) {
+                    // DON'T USE JQUERY - IT HOSES UP THE FILELINKS FOR SOME REASON
+                    document.getElementById("FolderDiv").innerHTML = result;
+                }
+            });
+        }
+
+        function DecreaseFolder(parm) {
+            var expandedDirectories = $("#ExpandedDirectories").val();
+            var rootPath = $("#RootPath").val();
+            var updatedList = expandedDirectories.replace(parm, "");
+            $.ajax({
+                type: "POST",
+                async: false,
+                data: { rootPath: rootPath,expandedDirectories: updatedList },
+                url: '@Url.Action("UpdateFolderDisplay")',
+                success: function (result) {
+                    // DON'T USE JQUERY - IT HOSES UP THE FILELINKS FOR SOME REASON
+                    document.getElementById("FolderDiv").innerHTML = result;
+                }
+            });
+        }
+    </script>
+}

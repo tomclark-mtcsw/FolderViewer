@@ -1,0 +1,62 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.folder-view-expandable-directory, .folder-view-expanded-directory {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.folder-view-file {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.folder-view-indent {
+    padding-left: 10px;
+}
+
+.folder-view-document-icon {
+    margin: 0 0 0 10px;
+}
+
+.folder-view-folder-icon {
+    margin: 0 2px 0 0;
+}
+
+.folder-view-folder-link {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .folder-view-folder-link:hover {
+        color: #AAAAAA;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+.folder-view-file-link {
+    color: #000000;
+    text-decoration: underline;
+}
+
+    .folder-view-file-link:hover {
+        color: #000000;
+        text-decoration: none;
+    }
